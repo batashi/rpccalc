@@ -1,2 +1,2 @@
 # rpccalc
-experiment test, golang,rpc,elctonjs
+experiment test, golang,rpc & elctronjs
