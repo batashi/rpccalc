@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>RPC Calc!</title>
+  <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <link type="style" href="cal.css" />
+  <script type="style" src="cal.css" ></script>
+  <script>
+    async function calc_over_rpc() {
+      var jayson = require('jayson');
+      const client = jayson.client.tcp({
+        port: 5080
+      });
+
+      // invoke "add"
+      client.request('Calculator.Add', [{ X: 4, Y: 7 }], function (err, response) {
+        debugger;
+        console.log('RES : ' + response)
+        console.log('Err : ' + err)
+        if (err) throw err;
+        console.log(response.result); // 2
+      });
+
+
+    }
+  </script>
+</head>
+
+<body >
+  <div class="container">
+  <table style="width: 100%;">
+    <tr>
+      <td>
+        <h2 >00</h2></td>
+      <td></td>
+      <td>
+        <h2>00</h2></td>
+      <td></td>
+    </tr>
+  </table>
+  <h2>00</h2>
+  <h1>00</h1>
+  <hr>
+
+  <label>Number A</label> <input id="X" type="number" /> <br>
+  + <br>
+  <label>Number B</label> <input id="Y" type="number" /> <br>
+  <hr>
+  <input type="submit" onclick="calc_over_rpc()" />
+  <h2 id="result">Result = </h2>
+
+</div>
+</body>
+
+</html>

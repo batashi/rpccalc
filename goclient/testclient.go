@@ -6,7 +6,7 @@ import (
 )
 
 func client() {
-	c, err := rpc.Dial("tcp", "127.0.0.1:9999")
+	c, err := rpc.Dial("tcp", "127.0.0.1:5080")
 	if err != nil {
 		fmt.Println(err)
 		return

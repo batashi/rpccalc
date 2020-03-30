@@ -32,13 +32,15 @@ func (this *Server) AddB(newB int64, reply *int64) error {
 }
 
 func (this *Server) Addition(newB int64, reply *int64) error {
+	fmt.Println("Server.Addition REQUESTED =", newB)
+
 	*reply = a + b
 	return nil
 }
 
 func server() {
 	rpc.Register(new(Server))
-	ln, err := net.Listen("tcp", ":9999")
+	ln, err := net.Listen("tcp", ":5080")
 	if err != nil {
 		fmt.Println(err)
 		return
