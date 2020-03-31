@@ -15,6 +15,7 @@ go run server/server-json.go
 Note: cannot run both clients at same time.
 ## Electron Client 
 cd electron-client
+
 npm start
 
 ## GO Client
