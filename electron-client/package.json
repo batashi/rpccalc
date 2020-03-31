@@ -1,5 +1,5 @@
 {
-  "name": "fst",
+  "name": "RPCCalc",
   "version": "1.0.0",
   "description": "EJS RPC CLient",
   "main": "index.js",
