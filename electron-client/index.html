@@ -7,7 +7,7 @@
   <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   <link type="style" href="cal.css" />
-  <script type="style" src="cal.css" ></script>
+  <script type="style" src="cal.css"></script>
   <script>
     async function calc_over_rpc() {
       var jayson = require('jayson');
@@ -16,12 +16,20 @@
       });
 
       // invoke "add"
-      client.request('Calculator.Add', [{ X: 4, Y: 7 }], function (err, response) {
+      var numx =  document.getElementById('numx').value;
+      var numy =  document.getElementById('numy').value;
+
+      numx=parseInt(numx)
+      numy=parseInt(numy)
+      client.request('Calculator.Add', [{ X: numx, Y: numy }], function (err, response) {
         debugger;
         console.log('RES : ' + response)
         console.log('Err : ' + err)
+
         if (err) throw err;
-        console.log(response.result); // 2
+        console.log(response.result);
+        
+       document.getElementById("num_result").innerHTML=response.result;
       });
 
 
@@ -29,30 +37,34 @@
   </script>
 </head>
 
-<body >
+<body>
   <div class="container">
-  <table style="width: 100%;">
-    <tr>
-      <td>
-        <h2 >00</h2></td>
-      <td></td>
-      <td>
-        <h2>00</h2></td>
-      <td></td>
-    </tr>
-  </table>
-  <h2>00</h2>
-  <h1>00</h1>
-  <hr>
+    <table style="width: 100%;">
+      <tr style="text-align: center;">
+        <td>
+          <input type="number" value="00" id="numx">
 
-  <label>Number A</label> <input id="X" type="number" /> <br>
-  + <br>
-  <label>Number B</label> <input id="Y" type="number" /> <br>
-  <hr>
-  <input type="submit" onclick="calc_over_rpc()" />
-  <h2 id="result">Result = </h2>
+        </td><td  > <span style="font-size: xx-large;">+</span> </td>
+        <td>
+          <input type="number" value="00" id="numy">
+        </td>
+        <td></td>
+      </tr>
+      <tr style="text-align: center;">
+        <td colspan="3">
+          <button onclick="calc_over_rpc()" >Calc over RPC </button>
+        </td>
+      </tr>
+      <tr style="text-align: center;">
+        <td colspan="3">
+          <h1 id="num_result">00</h1>
+        </td>
+      </tr>
+    </table>
+    <hr>
+ <small> <a href="https://github.com/ahmed89albttashi/rpccalc">Ahmed alBattashi</a></small>
 
-</div>
+  </div>
 </body>
 
 </html>

@@ -1,6 +1,21 @@
 # rpccalc
 experiment test, golang,rpc & elctronjs
 
+Running on port 5080
+Latest version updated to jsonRPC
+
+# Running
+
+## Server
+go run server/server-json.go 
+
+Note: cannot run both clients at same time.
+## Electron Client 
+cd electron-client
+npm start
+
+## GO Client
+go run goclient/client-json.go
 
 
 

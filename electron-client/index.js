@@ -3,8 +3,8 @@ const { app, BrowserWindow } = require('electron')
 function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 300,
-    height: 400,
+    width: 600,
+    height: 300,
     autoHideMenuBar:true,
     webPreferences: {
       nodeIntegration: true,
