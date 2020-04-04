@@ -1,5 +1,5 @@
 # rpccalc
-experiment test, golang,rpc & elctronjs
+experiment project. golang, rpc & electronjs
 
 ![Alt text](/../master/img/screen1.png?raw=true "Optional Title")
 
