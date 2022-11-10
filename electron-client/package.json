@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^8.2.0",
+    "electron": "^18.3.7",
     "jayson": "^3.2.0",
     "json-rpc-client": "^0.2.2",
     "node-json-rpc": "0.0.1"
